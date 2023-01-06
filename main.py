@@ -10,6 +10,7 @@ screen.tracer(0)
 
 
 player = Player()
+scoreboard = Scoreboard()
 screen.listen()
 screen.onkey(player.move, 'Up')
 
@@ -17,3 +18,6 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+    if player.ycor() == -100:
+        scoreboard.add_score()
+        player.restart()
