@@ -19,6 +19,7 @@ class Car:
             new_car.goto(300, random.randint(-250, 250))
             self.all_cars.append(new_car)
 
-    def move_car(self):
+    def move_car(self, level):
         for car in self.all_cars:
-            car.backward(STARTING_MOVE_DISTANCE)
+            car.backward(STARTING_MOVE_DISTANCE + level*MOVE_INCREMENT)
+
