@@ -21,7 +21,9 @@ while game_is_on:
     screen.update()
     car_generator.create_car()
     car_generator.move_car(scoreboard.level)
-    if player.ycor() == 280:
+
+    # Detect player at finish line
+    if player.at_finish_line():
         scoreboard.add_score()
         player.restart()
 
@@ -30,6 +32,5 @@ while game_is_on:
         if car.distance(player) < 25:
             game_is_on = False
             scoreboard.game_over()
-
 
 screen.exitonclick()
